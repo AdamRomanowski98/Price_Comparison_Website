@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"webscrapper","l":"BoxScrapper"},{"p":"webscrapper","l":"EBuyerScrapper"},{"p":"webscrapper","l":"LaptopsDirectScrapper"},{"p":"webscrapper","l":"Main"},{"p":"webscrapper","l":"OverclockersScrapper"},{"p":"webscrapper","l":"VeryScrapper"}];updateSearchResults();

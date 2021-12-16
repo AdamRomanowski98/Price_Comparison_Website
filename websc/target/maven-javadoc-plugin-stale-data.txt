@@ -1,0 +1,54 @@
+@options
+@packages
+@argfile
+-classpath
+'C:/Users/adamr/.m2/repository/org/jsoup/jsoup/1.13.1/jsoup-1.13.1.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.8'
+-sourcepath
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2021. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'maven 1.0 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'maven 1.0 API'
+webscrapper
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/src/main/java/webscrapper/BoxScrapper.java'
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/src/main/java/webscrapper/EBuyerScrapper.java'
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/src/main/java/webscrapper/LaptopsDirectScrapper.java'
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/src/main/java/webscrapper/Main.java'
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/src/main/java/webscrapper/OverclockersScrapper.java'
+'C:/Users/adamr/OneDrive/Pulpit/Studia/Rok 3/Avanced web development/Price-comparison/websc/src/main/java/webscrapper/VeryScrapper.java'
+C:\Users\adamr\.m2\repository\org\jsoup\jsoup\1.13.1\jsoup-1.13.1.jar = 1635706267519
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\src\main\java = 1635705339152
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\allclasses-index.html = 1635798109856
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\allpackages-index.html = 1635798109858
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\element-list = 1635798109818
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\help-doc.html = 1635798109875
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\index-all.html = 1635798109869
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\index.html = 1635798109872
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\jquery-ui.overrides.css = 1635798109903
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\member-search-index.js = 1635798109862
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\module-search-index.js = 1635798109859
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\overview-tree.html = 1635798109847
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\package-search-index.js = 1635798109860
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\script.js = 1635798109879
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\search.js = 1635798109881
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\stylesheet.css = 1635798109877
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\tag-search-index.js = 1635798109863
+C:\Users\adamr\OneDrive\Pulpit\Studia\Rok 3\Avanced web development\Price-comparison\websc\target\site\apidocs\type-search-index.js = 1635798109861

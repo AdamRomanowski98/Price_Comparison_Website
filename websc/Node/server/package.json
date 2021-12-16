@@ -1,0 +1,29 @@
+{
+  "name": "price-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "websc/Node/server/server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Adam Romanowski",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2",
+    "sequelize": "^6.12.0-alpha.1",
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0",
+    "should": "^13.2.3"
+  }
+}

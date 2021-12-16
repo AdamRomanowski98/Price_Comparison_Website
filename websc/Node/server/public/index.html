@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- Vue development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Link to JavaScript for Vue Router Library -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- Axios library -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>eCompare - Find best price</title>
+</head>
+<body >
+   
+  
+
+  
+
+    <div id="app">
+        <nav>
+            <div class="navigationbar">
+                <ul class="menu">
+                    <div class="search_wrap search_wrap_1">
+                        <div class="search_box">
+                            <input type="text" id="productName" class="input" placeholder="Search best prices..." onkeydown="return (event.keyCode!=13);" v-on:keyup.enter="loadNewProduct" name="product">
+                            <div class="btn btn_common" >
+                                <i class="fas fa-search" v-on:click="loadNewProduct"></i>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    
+        <div class="container">
+        
+        </div>
+        <div class="container">
+            <div class="col-12 text-center">
+                <div class="buttons">
+                    <button v-on:click="previousPage" type="button" class="btn1"><i style='font-size:24px' class='far'>&#xf359;</i> Previous</button>
+                    <button v-on:click="loadNextPage" type="button" class="btn1 ">Next <i style='font-size:24px' class='far'>&#xf35a;</i></button>
+                </div>
+            </div>
+
+            
+            <div class="product-container" v-for="monitor in monitors">
+                <div class="product-box">
+                    <div class="product-img"><img v-bind:src="monitor.image_url"></div>
+                    <div class="newProduct-details">
+                        <div class="model-details">
+                            <div class="Newp-name">{{monitor.model | subStr}}</div>
+                        </div>    
+                        <div class="manufacturer-details">
+                            <div class="Newp-name">{{monitor.manufacturer}}</div>
+                        </div> 
+                            <div class="Newp-name">£{{monitor.price}}</div>
+                            <a v-bind:href="monitor.url" target="_blank"><button type="button" class="btn">Go to store</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <p>Website created by: <b>Adam Romanowski</b> &nbsp; &nbsp; &nbsp; Contact information: <b><a href="mailto:ar1468@live.mdx.ac.uk">ar1468@live.mdx.ac.uk</a></b></p>
+</footer>
+
+</body>
+</html>
+
+<script>
+  
+    let offsetNo = 0; //Stores value of offset
+    let totalItemsNo = 0; //Storage for total number of displayed product
+    let product; //Stores porduct name
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            monitors: []
+        },
+
+        filters: {
+  
+  subStr: function(string) {
+        if(string.length > 60){
+          return string.substring(0,100) +"...";
+        }else{
+            return string;
+        }
+      }
+  },
+        methods: {
+          
+            loadProduct: function () {
+                product =  localStorage.getItem("searchedProduct");
+                document.getElementById("productName").setAttribute('value', localStorage.getItem("searchedProduct"));
+                var localApp = this;
+                axios.get('/monitors/'+product + "?num_items=12&offset=" + offsetNo)
+                    .then(function (response) {
+                        totalItemsNo = response.data.totNumItems;
+                        localApp.monitors = response.data.monitors;
+                    })
+                    .catch(function (error) {
+                        //Handle error
+                        console.log(error);
+                    });
+            },
+            loadNewProduct: function () {
+                offsetNo = 0;
+                product = document.getElementById("productName").value;
+                localStorage.setItem("searchedProduct", product);
+                var localApp = this;
+                axios.get('/monitors/' + product + "?num_items=12&offset=" + offsetNo)
+                    .then(function (response) {
+                        totalItemsNo = response.data.totNumItems;
+                        localApp.monitors = response.data.monitors;
+                    })
+                    .catch(function (error) {
+                        //Handle error
+                        console.log(error);
+                    });
+            },
+            loadNextPage: function () {
+                offsetNo = offsetNo + 12;
+                if (offsetNo > totalItemsNo) {
+                    offsetNo = totalItemsNo - (totalItemsNo % 12);
+                    alert("There is no more prodouct to display");
+                }
+                var localApp = this;
+                axios.get('/monitors/' + product + "?num_items=12&offset=" + offsetNo)
+                    .then(function (response) {
+                        localApp.monitors = response.data.monitors;
+                    })
+                    .catch(function (error) {
+                        //Handle error
+                        console.log(error);
+                    });
+            },
+            previousPage: function () {
+                offsetNo = offsetNo - 12;
+                if (offsetNo < 0) {
+                    offsetNo = 0
+                    alert("You are on the first page!")
+                };
+                var localApp = this;
+                axios.get('/monitors/' + product + "?num_items=12&offset=" + offsetNo)
+                    .then(function (response) {
+                        totalItemsNo = response.data.totNumItems;
+                        localApp.monitors = response.data.monitors;
+                    })
+                    .catch(function (error) {
+                        //Handle error
+                        console.log(error);
+                    });
+            }
+        },
+        created: function(){//Vue lifecycle hook, called when data is loaded.
+            //Load products from web service
+            this.loadProduct();
+           
+        }
+    })
+</script>
